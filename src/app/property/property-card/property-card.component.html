@@ -1,6 +1,9 @@
 <div class="card p-3 mt-3 mb-5 shadow-lg h-100" style="width: 100%;">
     <div class="card-img-wrapper">
-        <img src="../../../assets/home.jpg" class="card-img-top mt-1" alt="..." style="height: 210px;">
+        <img *ngIf="property.Image" src="../../../assets/images/{{property.Image}}.jpg" class="card-img-top mt-1" alt="..."
+            style="height: 210px;">
+        <img *ngIf="!property.Image" src="../../../assets/images/home.jpg" class="card-img-top mt-1" alt="..."
+            style="height: 210px;">
         <ul class="list-inline text-center member-icons animate">
             <li class="list-inline-item">
                 <button class="btn btn-primary" routerLink="/property-detail/{{property.Id}}"><i
