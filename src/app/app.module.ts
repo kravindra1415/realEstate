@@ -8,8 +8,11 @@ import { PropertyListComponent } from './property/property-list/property-list.co
 import { NavBarComponent } from './property/nav-bar/nav-bar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HousingService } from './service/housing.service';
-import { FormsModule } from '@angular/forms'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { AddPropertyComponent } from './property/add-property/add-property.component';
+import { UserLoginComponent } from './user/user-login/user-login.component';
+import { UserRegisterComponent } from './user/user-register/user-register.component';
+import { UserService } from './service/user.service';
 
 @NgModule({
   declarations: [
@@ -17,16 +20,20 @@ import { AddPropertyComponent } from './property/add-property/add-property.compo
     PropertyCardComponent,
     PropertyListComponent,
     NavBarComponent,
-    AddPropertyComponent
+    AddPropertyComponent,
+    UserLoginComponent,
+    UserRegisterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
-    HousingService
+    HousingService,
+    UserService
   ],
   bootstrap: [AppComponent]
 })
