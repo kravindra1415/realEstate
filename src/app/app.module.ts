@@ -13,6 +13,9 @@ import { AddPropertyComponent } from './property/add-property/add-property.compo
 import { UserLoginComponent } from './user/user-login/user-login.component';
 import { UserRegisterComponent } from './user/user-register/user-register.component';
 import { UserService } from './service/user.service';
+import { AuthService } from './service/auth.service';
+import { AlertifyService } from './service/alertify.service';
+
 
 @NgModule({
   declarations: [
@@ -29,11 +32,11 @@ import { UserService } from './service/user.service';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [
     HousingService,
-    UserService
+    UserService, AuthService, AlertifyService
   ],
   bootstrap: [AppComponent]
 })
