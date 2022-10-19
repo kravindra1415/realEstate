@@ -7,7 +7,7 @@ import { IProperty } from '../IProperty';
   styleUrls: ['./property-card.component.css']
 })
 export class PropertyCardComponent implements OnInit {
-  @Input() property!: IProperty;
+  @Input() property: IProperty;
 
   constructor() { }
 

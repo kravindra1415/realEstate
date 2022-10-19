@@ -15,7 +15,10 @@ import { UserRegisterComponent } from './user/user-register/user-register.compon
 import { UserService } from './service/user.service';
 import { AuthService } from './service/auth.service';
 import { AlertifyService } from './service/alertify.service';
-
+import { TabsModule } from 'ngx-bootstrap/tabs';
+import { ButtonsModule } from 'ngx-bootstrap/buttons';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 @NgModule({
   declarations: [
@@ -33,6 +36,10 @@ import { AlertifyService } from './service/alertify.service';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    TabsModule.forRoot(),
+    [ButtonsModule.forRoot(),
+      BrowserAnimationsModule,
+    BsDatepickerModule.forRoot(),]
   ],
   providers: [
     HousingService,
