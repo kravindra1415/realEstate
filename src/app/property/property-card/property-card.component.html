@@ -1,10 +1,10 @@
-<div class="card p-3 mt-3 mb-5 shadow-lg h-100" style="width: 100%;">
+<div class="card p-3 mt-2 shadow-lg h-100" style="width: 100%;">
     <div class="card-img-wrapper">
-        <img *ngIf="property.Image" src="../../../assets/images/{{property.Image}}.jpg" class="card-img-top mt-1" alt="..."
-            style="height: 210px;">
+        <img *ngIf="property.Image" src="../../../assets/images/{{property.Image}}.jpg" class="card-img-top mt-1"
+            alt="..." style="height: 210px;">
         <img *ngIf="!property.Image" src="../../../assets/images/home.jpg" class="card-img-top mt-1" alt="..."
             style="height: 210px;">
-        <ul class="list-inline text-center member-icons animate">
+        <ul *ngIf="!hideIcons" class="list-inline text-center member-icons animate">
             <li class="list-inline-item">
                 <button class="btn btn-primary" routerLink="/property-detail/{{property.Id}}"><i
                         class="bi bi-pencil-fill"></i></button>
@@ -16,13 +16,24 @@
     </div>
 
     <div class="card-body mt-2 ms-2 me-2">
-        <h1>{{property.Name}}</h1>
-        <h3>{{property.Type}}</h3>
-        <h4 style="margin-bottom: -20%;">{{property.Price}}</h4>
-        <!-- <h4>{{property_name}}</h4> -->
+        <!-- <h1>{{property.Name}}</h1>
+        <h3>{{property.PType}}</h3>
+        <h4 style="margin-bottom: -20%;">{{property.Price}}</h4> -->
+
+        <h1 class="mb-0">{{property.BHK}} BHK {{property.PType}}</h1>
+        in {{property.Name}}
+        <span *ngIf="property.Name">,</span>
+        {{property.City}}
+
+        <h6 class="mt-2">{{property.FType}}
+            <span *ngIf="property.FType !=='Unfurnished'">Furnished</span> | Ready to move
+        </h6>
+
+        <hr class="mt-0 mb-2">
+
+        <h6 class="mb-0">Price : <span class>{{property.Price}}USD.</span>
+            |Area : <span>{{property.BuiltArea}}Sq ft</span>
+        </h6>
+
     </div>
 </div>
-
-<!-- <div class="col-md-9">
-
-    </div> -->

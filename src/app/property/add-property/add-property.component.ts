@@ -1,8 +1,10 @@
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms'
 import { TabsetComponent } from 'ngx-bootstrap/tabs';
-import { IProperty } from '../IProperty';
+import { IProperty } from 'src/app/models/IProperty';
+import { IPropertyBase } from 'src/app/models/ipropertbase';
+
 @Component({
   selector: 'app-add-property',
   templateUrl: './add-property.component.html',
@@ -12,12 +14,17 @@ export class AddPropertyComponent implements OnInit {
 
   @ViewChild('Form') addPropertyForm: NgForm | undefined;
   @ViewChild('formTabs', { static: false }) formTabs?: TabsetComponent | undefined;
-  propertyView: IProperty = {
+  propertyView: IPropertyBase = {
     Id: 0,
     Name: '',
     Price: 1234,
     SellRent: 1200,
-    Type: "",
+    PType: "",
+    FType: "",
+    BHK: 0,
+    BuiltArea: 0,
+    City: '',
+    RTM: 0
   };
 
   propertyTypes: Array<string> = ['House', 'Apartment', 'Duplex']
@@ -36,6 +43,8 @@ export class AddPropertyComponent implements OnInit {
   onSubmit() {
     //console.warn(formData);
     console.warn(this.addPropertyForm);
+    console.log('SellRent=' + this.addPropertyForm?.value.BasicInfo.SellRent);
+
   }
 
   selectTab(tabId: number) {
