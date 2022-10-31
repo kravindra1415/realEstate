@@ -17,18 +17,21 @@
                   <!-- <div class="btn-group" btnRadioGroup name="SellRent" ngModel> -->
                   <!-- for reactive form -->
                   <div class="btn-group" btnRadioGroup formControlName="SellRent">
-                    <label class="btn btn-outline-primary me-2" btnRadio="1" role="button" name="SellRent">Sell</label>
-                    <label class="btn btn-outline-primary" btnRadio="2" role="button" name="SellRent">Rent</label>
+                    <label tabindex="0" class="btn btn-outline-primary me-2" btnRadio="1" role="button"
+                      name="SellRent">Sell</label>
+                    <label tabindex="0" class="btn btn-outline-primary" btnRadio="2" role="button"
+                      name="SellRent">Rent</label>
                   </div>
                   <div class="error-block" *ngIf="SellRent.invalid && nextClicked">
                     Please select a sell or rent
                   </div>
                 </div>
+
                 <div class="form-group col-12">
                   <p>BHK</p>
                   <div class="btn-group" btnRadioGroup [(ngModel)]="propertyView.BHK" name="BHK" formControlName="BHK">
                     <label *ngFor="let bhk of ['1','2','3','4']" class="btn btn-outline-primary me-2" [btnRadio]="bhk"
-                      role="button" name="SellRent">{{bhk}}</label>
+                      tabindex="0" role="button" name="BHK">{{bhk}}</label>
                   </div>
                   <div class="error-block" *ngIf="BHK.invalid && nextClicked">
                     please select a bhk
@@ -61,7 +64,7 @@
                 <div class="form-group col-12">
                   <label for="name">in Building/Society/Project</label>
                   <!-- <input type="text" class="form-control" name="Name" ngModel #nameData='ngModel' minlength="5" required -->
-                  <input type="text" class="form-control" formControlName="Name" ngModel minlength="5" required
+                  <input type="text" class="form-control" formControlName="Name" ngModel minlength="5"
                     [(ngModel)]="propertyView.Name">
                   <div class="error-block" *ngIf="Name.invalid && (nextClicked || Name.touched)">
                     please select a building name
@@ -81,11 +84,12 @@
                   </div>
                 </div>
                 <div class="form-group col-12 d-grid gap-2 mt-2">
-                  <button type="submit" class="btn btn-primary me-2"
+                  <button type="button" class="btn btn-primary me-2"
                     (click)="selectTab(1,BasicInfo.valid)">Next</button>
                 </div>
 
               </tab>
+
               <tab heading="Pricing and Area" formGroupName="PriceInfo">Pricing and Area
                 <div class="form-group col-12">
                   <label *ngIf="SellRent.value==1">Price (in USD)</label>
@@ -122,7 +126,11 @@
                 <div class="form-group col-12">
                   <label>Carpet Area(in Sqr Feet)</label>
                   <input type="text" class="form-control" formControlName="CarpetArea">
+                  <div class="error-block" *ngIf="CarpetArea.invalid && nextClicked">
+                    Please select built up area
+                  </div>
                 </div>
+
                 <div class="d-grid gap-2">
                   <button type="button" (click)="selectTab(2,PriceInfo.valid)"
                     class="btn btn-primary d-grid gap-2 mt-2">Next</button>
@@ -130,10 +138,11 @@
                     class="btn btn-primary d-grid gap-2 mt-2">Back</button>
                 </div>
               </tab>
+
               <tab heading="Address" formGroupName="AddressInfo">
                 <div class="form-group col-12">
                   <label>Floor</label>
-                  <input type="text" class="form-control">
+                  <input type="text" class="form-control" formControlName="FloorNo">
                 </div>
 
                 <div class="form-group col-12">
@@ -227,6 +236,7 @@
                     class="btn btn-primary d-grid gap-2 mt-2">Back</button>
                 </div>
               </tab>
+
               <tab heading="Photos">Photos
                 <div class="form-group col-12">
                   <div class="photo-control">
@@ -241,6 +251,7 @@
                   <button type="submit" class="btn btn-primary d-grid gap-2 mt-2">Cancel</button>
                 </div>
               </tab>
+
             </tabset>
           </div>
         </form>

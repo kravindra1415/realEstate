@@ -80,7 +80,8 @@ export class AddPropertyComponent implements OnInit {
   }
 
 
-  /* #region  FormGroup */
+  //#region <Getter Methods>
+  // #region <FormGroups>
   get BasicInfo() {
     return this.addPropertyForm.controls['BasicInfo'] as FormGroup;
   }
@@ -96,9 +97,9 @@ export class AddPropertyComponent implements OnInit {
   get OtherInfo() {
     return this.addPropertyForm.controls['OtherInfo'] as FormGroup;
   }
-  /* #endregion FormGroup*/
+  // #endregion
 
-
+  //#region <Form Controls>
   get SellRent() {
     return this.BasicInfo.controls['SellRent'] as FormControl;
   }
@@ -106,6 +107,7 @@ export class AddPropertyComponent implements OnInit {
   get BHK() {
     return this.BasicInfo.controls['BHK'] as FormControl;
   }
+
   get PType() {
     return this.BasicInfo.controls['PType'] as FormControl;
   }
@@ -121,6 +123,7 @@ export class AddPropertyComponent implements OnInit {
   get City() {
     return this.BasicInfo.controls['City'] as FormControl;
   }
+
   get Price() {
     return this.PriceInfo.controls['Price'] as FormControl;
   }
@@ -129,20 +132,40 @@ export class AddPropertyComponent implements OnInit {
     return this.PriceInfo.controls['BuiltArea'] as FormControl;
   }
 
-  get Maintenance() {
-    return this.PriceInfo.controls['Maintenance'] as FormControl;
+  get CarpetArea() {
+    return this.PriceInfo.controls['CarpetArea'] as FormControl;
   }
 
   get Security() {
     return this.PriceInfo.controls['Security'] as FormControl;
   }
 
-  get CarpetArea() {
-    return this.PriceInfo.controls['CarpetArea'] as FormControl;
+  get Maintenance() {
+    return this.PriceInfo.controls['Maintenance'] as FormControl;
+  }
+
+  get FloorNo() {
+    return this.AddressInfo.controls['FloorNo'] as FormControl;
+  }
+
+  get TotalFloor() {
+    return this.AddressInfo.controls['TotalFloor'] as FormControl;
+  }
+
+  get Address() {
+    return this.AddressInfo.controls['Address'] as FormControl;
+  }
+
+  get LandMark() {
+    return this.AddressInfo.controls['LandMark'] as FormControl;
   }
 
   get RTM() {
     return this.OtherInfo.controls['RTM'] as FormControl;
+  }
+
+  get PossessionOn() {
+    return this.OtherInfo.controls['PossessionOn'] as FormControl;
   }
 
   get AOP() {
@@ -157,29 +180,12 @@ export class AddPropertyComponent implements OnInit {
     return this.OtherInfo.controls['MainEntrance'] as FormControl;
   }
 
-  get PosessionOn() {
-    return this.OtherInfo.controls['PosessionOn'] as FormControl;
-  }
-
   get Description() {
     return this.OtherInfo.controls['Description'] as FormControl;
   }
 
-  get Address() {
-    return this.AddressInfo.controls['Address'] as FormControl;
-  }
-
-  get LandMark() {
-    return this.AddressInfo.controls['LandMark'] as FormControl;
-  }
-
-  get FloorNo() {
-    return this.AddressInfo.controls['FloorNo'] as FormControl;
-  }
-
-  get TotalFloor() {
-    return this.AddressInfo.controls['TotalFloor'] as FormControl;
-  }
+  //#endregion
+  //#endregion
 
 
   onBack() {
@@ -230,7 +236,7 @@ export class AddPropertyComponent implements OnInit {
     this.property.AOP = this.AOP.value;
     this.property.Gated = this.Gated.value;
     this.property.MainEntrance = this.MainEntrance.value;
-    this.property.Posession = this.PosessionOn.value;
+    this.property.Posession = this.PossessionOn.value;
     this.property.Description = this.Description.value;
     this.property.PostedOn = new Date().toString();
 
