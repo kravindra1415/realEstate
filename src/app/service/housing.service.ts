@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http'
 import { map } from 'rxjs/operators';
 import { IProperty } from '../models/IProperty';
 import { Observable } from 'rxjs';
+import { Property } from '../models/property';
 
 @Injectable({
   providedIn: 'root'
@@ -23,5 +24,9 @@ export class HousingService {
         return propertiesArray;
       })
       )
+  }
+
+  addProperty(property: Property) {
+    localStorage.setItem('newProp', JSON.stringify(property));
   }
 }
