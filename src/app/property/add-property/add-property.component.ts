@@ -164,8 +164,8 @@ export class AddPropertyComponent implements OnInit {
     return this.OtherInfo.controls['RTM'] as FormControl;
   }
 
-  get PossessionOn() {
-    return this.OtherInfo.controls['PossessionOn'] as FormControl;
+  get PosessionOn() {
+    return this.OtherInfo.controls['PosessionOn'] as FormControl;
   }
 
   get AOP() {
@@ -236,7 +236,7 @@ export class AddPropertyComponent implements OnInit {
     this.property.AOP = this.AOP.value;
     this.property.Gated = this.Gated.value;
     this.property.MainEntrance = this.MainEntrance.value;
-    this.property.Posession = this.PossessionOn.value;
+    this.property.Posession = this.PosessionOn.value;
     this.property.Description = this.Description.value;
     this.property.PostedOn = new Date().toString();
 

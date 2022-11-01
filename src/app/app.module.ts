@@ -19,6 +19,7 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { PropertyDetailComponent } from './property/property-detail/property-detail.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
     NavBarComponent,
     AddPropertyComponent,
     UserLoginComponent,
-    UserRegisterComponent
+    UserRegisterComponent, PropertyDetailComponent
   ],
   imports: [
     BrowserModule,

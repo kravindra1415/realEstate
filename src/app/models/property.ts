@@ -15,7 +15,7 @@ export class Property implements IPropertyBase {
 
     Id: number;
     SellRent: number;
-    Name: string;
+    Name: string | undefined;
     PType: string;
     BHK: number;
     FType: string;
@@ -38,6 +38,7 @@ export class Property implements IPropertyBase {
     Security?: number;
     Maintenance?: number;
     Posession?: string;
+    Image: string;
     PostedOn: string;
 }
 
