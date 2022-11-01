@@ -20,7 +20,7 @@ export class PropertyListComponent implements OnInit {
     }
     this._housingService.getAll(this.SellRent).subscribe({
       next: (value) => {
-        this.properties = value;
+        this.properties = value as any;
         //
         // const newProperty = JSON.parse(localStorage.getItem('newProp') as string);
         // //

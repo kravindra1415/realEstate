@@ -20,6 +20,8 @@ import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { PropertyDetailComponent } from './property/property-detail/property-detail.component';
+import { PropertyDetailResolverService } from './property/property-detail/property-detail-resolver.service';
+import { NgxGalleryModule } from '@kolkov/ngx-gallery';
 
 @NgModule({
   declarations: [
@@ -40,11 +42,12 @@ import { PropertyDetailComponent } from './property/property-detail/property-det
     TabsModule.forRoot(),
     [ButtonsModule.forRoot(),
       BrowserAnimationsModule,
-    BsDatepickerModule.forRoot(),]
+    BsDatepickerModule.forRoot(),],
+    NgxGalleryModule
   ],
   providers: [
     HousingService,
-    UserService, AuthService, AlertifyService
+    UserService, AuthService, AlertifyService, PropertyDetailResolverService
   ],
   bootstrap: [AppComponent]
 })
