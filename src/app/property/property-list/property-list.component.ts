@@ -8,9 +8,16 @@ import { IProperty } from '../../models/IProperty';
   templateUrl: './property-list.component.html',
   styleUrls: ['./property-list.component.css']
 })
+
 export class PropertyListComponent implements OnInit {
   SellRent = 1;
-  properties: Array<IProperty> | undefined;
+  properties: Array<IProperty>;
+  Today = new Date();
+  City = '';
+  searchCity = '';
+  SortByParam = '';
+  sortDirection = 'asc';
+
   constructor(private _housingService: HousingService, private route: ActivatedRoute) {
   }
 
@@ -33,6 +40,24 @@ export class PropertyListComponent implements OnInit {
         console.log(err);
       },
     })
+  }
+
+  onCityFilter() {
+    this.searchCity = this.City;
+  }
+
+  onCityFilterClear() {
+    this.searchCity = '';
+    this.City = '';
+  }
+
+  onSortDirection() {
+    if (this.sortDirection === 'desc') {
+      this.sortDirection = 'asc';
+    }
+    else {
+      this.sortDirection = 'desc';
+    }
   }
 }
 

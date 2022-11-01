@@ -22,6 +22,8 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { PropertyDetailComponent } from './property/property-detail/property-detail.component';
 import { PropertyDetailResolverService } from './property/property-detail/property-detail-resolver.service';
 import { NgxGalleryModule } from '@kolkov/ngx-gallery';
+import { FilterPipe } from './pipes/filter.pipe';
+import { SortPipe } from './pipes/sort.pipe';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,7 @@ import { NgxGalleryModule } from '@kolkov/ngx-gallery';
     NavBarComponent,
     AddPropertyComponent,
     UserLoginComponent,
-    UserRegisterComponent, PropertyDetailComponent
+    UserRegisterComponent, PropertyDetailComponent, FilterPipe,SortPipe
   ],
   imports: [
     BrowserModule,
