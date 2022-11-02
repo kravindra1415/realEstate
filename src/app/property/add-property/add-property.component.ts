@@ -38,7 +38,7 @@ export class AddPropertyComponent implements OnInit {
   propertyTypes: Array<string> = ['House', 'Apartment', 'Duplex']
   furnishTypes: Array<string> = ['Fully', 'Semi', 'Unfurnished']
   entranceTypes: Array<string> = ['East', 'West', 'South', 'North']
-  cityList: string[];
+  cityList: any[];
 
   constructor(private router: Router, private formBuilder: FormBuilder, private housingService: HousingService, private alertifyService: AlertifyService) { }
 
