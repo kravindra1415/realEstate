@@ -1,5 +1,4 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { IProperty } from '../models/IProperty';
 
 @Pipe({
   name: 'filter'

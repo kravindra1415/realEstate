@@ -15,17 +15,19 @@ export class SortPipe implements PipeTransform {
     }
 
     // where a is the first element and b is the sescond element.
-    value.sort((a: any, b: any) => {
-      if (a[sortField] < b[sortField]) {
-        return -1 * multiplier;
-      }
-      else if (a[sortField] > b[sortField]) {
-        return 1 * multiplier;
-      }
-      else {
-        return 0;
-      }
-    })
-    return value;
+    if (value) {
+      value.sort((a: any, b: any) => {
+        if (a[sortField] < b[sortField]) {
+          return -1 * multiplier;
+        }
+        else if (a[sortField] > b[sortField]) {
+          return 1 * multiplier;
+        }
+        else {
+          return 0;
+        }
+      })
+      return value;
+    }
   }
 }
