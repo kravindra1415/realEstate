@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
-import { User } from 'src/app/models/user.model';
+import { UserForRegister } from 'src/app/models/user.model';
 import { AlertifyService } from 'src/app/service/alertify.service';
-import { UserService } from 'src/app/service/user.service';
+import { AuthService } from 'src/app/service/auth.service';
 
 @Component({
   selector: 'app-user-register',
@@ -13,10 +13,10 @@ export class UserRegisterComponent implements OnInit {
 
   registrationForm: FormGroup;
   //users: any = {};  // if we doesn't have the model defined..
-  users: User;
+  users: UserForRegister;
   userSubmitted: boolean;
 
-  constructor(private fb: FormBuilder, private userService: UserService, private alertifyService: AlertifyService) { }
+  constructor(private fb: FormBuilder, private authService: AuthService, private alertifyService: AlertifyService) { }
 
   ngOnInit(): void {
     // this.registrationForm = new FormGroup({
@@ -40,7 +40,7 @@ export class UserRegisterComponent implements OnInit {
     )
   }
 
-  userData(): User {
+  userData(): UserForRegister {
     return this.users = {
       userName: this.userName.value,
       email: this.emailId.value,
@@ -84,14 +84,18 @@ export class UserRegisterComponent implements OnInit {
     if (this.registrationForm.valid) {
       //this.users = Object.assign(this.users, this.registrationForm.value);  = > if we have not defined the model yet
       //this.addUser(this.users);
-      this.userService.addUser(this.userData());
-      this.registrationForm.reset();
-      this.userSubmitted = false;
-      this.alertifyService.success('Congrats!!😎👍, you are successfully registered..');
+      this.authService.registerUser(this.userData()).subscribe(() => {
+        this.registrationForm.reset();
+        this.userSubmitted = false;
+        this.alertifyService.success('Congrats!!😎👍, you are successfully registered..');
+      }, error => {
+        console.log(error);
+        this.alertifyService.error(error.error);
+      });
     }
-    else {
-      this.alertifyService.error('🤦‍♂️🤦‍♂️, kindly provide the required fields..');
-    }
+    // else {
+    //   this.alertifyService.error('🤦‍♂️🤦‍♂️, kindly provide the required fields..');
+    // }
   }
 
   //created a service for this
