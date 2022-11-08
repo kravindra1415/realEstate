@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { PropertyCardComponent } from './property/property-card/property-card.component';
 import { PropertyListComponent } from './property/property-list/property-list.component';
 import { NavBarComponent } from './property/nav-bar/nav-bar.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HousingService } from './service/housing.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { AddPropertyComponent } from './property/add-property/add-property.component';
@@ -24,6 +24,7 @@ import { PropertyDetailResolverService } from './property/property-detail/proper
 import { NgxGalleryModule } from '@kolkov/ngx-gallery';
 import { FilterPipe } from './pipes/filter.pipe';
 import { SortPipe } from './pipes/sort.pipe';
+import { HttpErrorInterceptorService } from './service/httpError-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,7 @@ import { SortPipe } from './pipes/sort.pipe';
     NavBarComponent,
     AddPropertyComponent,
     UserLoginComponent,
-    UserRegisterComponent, PropertyDetailComponent, FilterPipe,SortPipe
+    UserRegisterComponent, PropertyDetailComponent, FilterPipe, SortPipe
   ],
   imports: [
     BrowserModule,
@@ -48,6 +49,11 @@ import { SortPipe } from './pipes/sort.pipe';
     NgxGalleryModule
   ],
   providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpErrorInterceptorService,
+      multi: true
+    },
     HousingService,
     UserService, AuthService, AlertifyService, PropertyDetailResolverService
   ],

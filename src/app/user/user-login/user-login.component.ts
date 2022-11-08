@@ -30,10 +30,11 @@ export class UserLoginComponent implements OnInit {
         localStorage.setItem('userName', user.userName);
         this.alertifyService.success('login successfull..');
         this.router.navigate(['/']);
-      }, error => {
-        console.log(error);
-        this.alertifyService.error(error.error)
-      }
+      },
+      //error => {
+      //   console.log(error);
+      //   this.alertifyService.error(error.error)
+      // }
     )
 
     //const token = this.authService.authUser(loginForm.value);
