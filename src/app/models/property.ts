@@ -21,25 +21,26 @@ export class Property implements IPropertyBase {
     furnishingType: string;
     price: number;
     builtArea: number;
-    CarpetArea?: number;
+    carpetArea?: number;
     //Image
-    Address: string;
-    Address2?: string;
+    address: string;
+    address2?: string;
     //Address3
     city: string;
-    Description?: string;
-    FloorNo?: string;
-    TotalFloor?: string;
+    description?: string;
+    floorNo?: string;
+    totalFloors?: string;
     readyToMove: number;
-    AOP?: string;
+    age?: string;
     //Bathrooms
-    MainEntrance?: string;
-    Gated?: number;
-    Security?: number;
-    Maintenance?: number;
-    Posession?: string;
-    image: string;
-    PostedOn: string;
+    mainEntrance?: string;
+    gated?: boolean;
+    security?: number;
+    maintenance?: number;
+    estPosessionOn?: Date | undefined;
+    image?: string;
+    // postedOn: string;
+    // postedBy: number;
 }
 
         // "Id": 1,

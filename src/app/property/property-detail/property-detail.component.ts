@@ -23,7 +23,11 @@ export class PropertyDetailComponent implements OnInit {
     this.propertyId = Number(this.route.snapshot.params['id']);
     this.route.data.subscribe((data: Property | any) => {
       this.property = data['prp'];
+      //console.log(this.property);
+
     })
+
+    this.property.age = this.housingService.getAgeProperty(this.property.estPosessionOn!)
 
     // this.route.params.subscribe((data) => {
     //   this.propertyId = Number(data['id']);

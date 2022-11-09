@@ -21,11 +21,15 @@ export class HousingService {
   }
 
   getProperty(id: number) {
-    return this.getAll(1).pipe(map(propertiesArray => {
-      //throw new Error('Some error');
-      return propertiesArray.find(p => p.id === id);
-    }));
+    return this._httpClient.get<Property>(this.BaseApiUrl + "api/Property/detail/" + id.toString());
   }
+
+  // getProperty(id: number) {
+  //   return this.getAll(1).pipe(map(propertiesArray => {
+  //     //throw new Error('Some error');
+  //     return propertiesArray.find(p => p.id === id);
+  //   }));
+  // }
 
   // getAll(SellRent?: number): Observable<Property[]> {
   //   return this._httpClient.
@@ -85,4 +89,31 @@ export class HousingService {
       return 101;
     }
   }
+
+  getAgeProperty(dateOfEstablishment: Date): string {
+    const todayDate = new Date();
+    const estDate = new Date(dateOfEstablishment);
+    let age = todayDate.getFullYear() - estDate.getFullYear();
+    const month = todayDate.getMonth() - estDate.getMonth();
+
+    //current month smaller than establishment month or 
+    //same month but current date smaller than establishment date
+
+    if (month < 0 || (month === 0 && todayDate.getDate() < estDate.getDate())) {
+      age--;
+    }
+
+    //establishment date is future date
+    if (todayDate < estDate) {
+      return '0';
+    }
+
+    //age is less than year
+    if (age === 0) {
+      return 'less than a year';
+    }
+
+    return age.toString();
+  }
+
 }
