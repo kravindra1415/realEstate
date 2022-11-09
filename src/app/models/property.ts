@@ -13,24 +13,24 @@ export class Property implements IPropertyBase {
     // RTM: number;
     // Image?: string | undefined;
 
-    Id: number;
-    SellRent: number;
-    Name: string | undefined;
-    PType: string;
-    BHK: number;
-    FType: string;
-    Price: number;
-    BuiltArea: number;
+    id: number;
+    sellRent: number;
+    name: string | undefined;
+    propertyType: string;
+    bhk: number;
+    furnishingType: string;
+    price: number;
+    builtArea: number;
     CarpetArea?: number;
     //Image
     Address: string;
     Address2?: string;
     //Address3
-    City: string;
+    city: string;
     Description?: string;
     FloorNo?: string;
     TotalFloor?: string;
-    RTM: number;
+    readyToMove: number;
     AOP?: string;
     //Bathrooms
     MainEntrance?: string;
@@ -38,7 +38,7 @@ export class Property implements IPropertyBase {
     Security?: number;
     Maintenance?: number;
     Posession?: string;
-    Image: string;
+    image: string;
     PostedOn: string;
 }
 

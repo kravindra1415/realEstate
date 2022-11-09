@@ -3,10 +3,10 @@ import { Injectable } from "@angular/core";
 import { catchError, concatMap, Observable, of, retry, retryWhen, throwError } from "rxjs";
 import { ErrorCode } from "../enums/enum";
 import { AlertifyService } from "./alertify.service";
-
 @Injectable({
     providedIn: 'root'
 })
+
 export class HttpErrorInterceptorService implements HttpInterceptor {
     constructor(private alertifyService: AlertifyService) {
     }
@@ -47,10 +47,8 @@ export class HttpErrorInterceptorService implements HttpInterceptor {
 
                         case ErrorCode.unauthorized:
                             return of(checkErr);
-
                     }
                 }
-
                 return throwError(checkErr);
             })
         )
