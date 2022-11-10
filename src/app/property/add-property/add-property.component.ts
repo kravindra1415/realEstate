@@ -6,6 +6,7 @@ import { IPropertyBase } from 'src/app/models/ipropertbase';
 import { Property } from 'src/app/models/property';
 import { HousingService } from 'src/app/service/housing.service';
 import { AlertifyService } from 'src/app/service/alertify.service';
+import { IKeyvaluepair } from 'src/app/models/ikeyvaluepair';
 
 @Component({
   selector: 'app-add-property',
@@ -35,8 +36,12 @@ export class AddPropertyComponent implements OnInit {
     readyToMove: 0
   };
 
-  propertyTypes: Array<string> = ['House', 'Apartment', 'Duplex']
-  furnishTypes: Array<string> = ['Fully', 'Semi', 'Unfurnished']
+  // propertyTypes: Array<string> = ['House', 'Apartment', 'Duplex']
+  propertyTypes: IKeyvaluepair[];
+
+  // furnishTypes: Array<string> = ['Fully', 'Semi', 'Unfurnished']
+  furnishTypes: IKeyvaluepair[];
+
   entranceTypes: Array<string> = ['East', 'West', 'South', 'North']
   cityList: any[];
 
@@ -46,9 +51,14 @@ export class AddPropertyComponent implements OnInit {
     this.housingService.getAllCities().subscribe(data => {
       this.cityList = data;
       console.warn(data);
-
     });
     this.createAddPropertyForm();
+    this.housingService.getPropertyTypes().subscribe(data => {
+      this.propertyTypes = data;
+    });
+    this.housingService.getFurnishingTypes().subscribe(data => {
+      this.furnishTypes = data;
+    });
   }
 
   createAddPropertyForm() {
@@ -65,18 +75,18 @@ export class AddPropertyComponent implements OnInit {
         Price: [null, Validators.required],
         BuiltArea: [null, Validators.required],
         CarpetArea: [null],
-        Security: [null],
-        Maintenance: [null]
+        Security: [0],
+        Maintenance: [0]
       }),
       AddressInfo: this.formBuilder.group({
         FloorNo: [null],
         TotalFloor: [null],
-        Address: [null],
+        Address: [null, Validators.required],
         LandMark: [null]
       }),
       OtherInfo: this.formBuilder.group({
         RTM: [null, Validators.required],
-        PosessionOn: [null],
+        PosessionOn: [null, Validators.required],
         AOP: [null],
         Gated: [null],
         MainEntrance: [null],
@@ -239,7 +249,7 @@ export class AddPropertyComponent implements OnInit {
     this.property.address = this.Address.value;
     this.property.address2 = this.LandMark.value;
     this.property.readyToMove = this.RTM.value;
-    this.property.age = this.AOP.value;
+    //this.property.age = this.AOP.value;
     this.property.gated = this.Gated.value;
     this.property.mainEntrance = this.MainEntrance.value;
     this.property.estPosessionOn = this.PosessionOn.value;

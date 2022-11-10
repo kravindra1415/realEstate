@@ -4,11 +4,11 @@ export interface IPropertyBase {
     name: string | undefined;
     furnishingType: string | undefined;
     propertyType: string | undefined;
-    price: number | undefined;
-    bhk: number;
-    builtArea: number;
+    price: number | any;
+    bhk: number | any;
+    builtArea: number | any;
     city: string;
     readyToMove: number;
     image?: string;
-    estPosessionOn?: Date | undefined;
+    estPosessionOn?: Date | any;
 }

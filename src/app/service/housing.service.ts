@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
-import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { Property } from '../models/property';
 import { environment } from 'src/environments/environment';
+import { IKeyvaluepair } from '../models/ikeyvaluepair';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +18,14 @@ export class HousingService {
 
   getAllCities(): Observable<string[]> {
     return this._httpClient.get<string[]>('https://localhost:7038/api/City');
+  }
+
+  getPropertyTypes(): Observable<IKeyvaluepair[]> {
+    return this._httpClient.get<IKeyvaluepair[]>('https://localhost:7038/api/PropertyType/list');
+  }
+
+  getFurnishingTypes(): Observable<IKeyvaluepair[]> {
+    return this._httpClient.get<IKeyvaluepair[]>('https://localhost:7038/api/FurnishingType/list');
   }
 
   getProperty(id: number) {
