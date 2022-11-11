@@ -65,6 +65,11 @@ export class AddPropertyComponent implements OnInit {
       this.furnishTypes = data;
     });
     //this.onSubmit();
+
+    if (!localStorage.getItem('userName')) {
+      this.alertifyService.error('you must be logged in to add a property');
+      this.router.navigate(['/user/login']);
+    }
   }
 
   createAddPropertyForm() {
