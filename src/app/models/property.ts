@@ -16,8 +16,10 @@ export class Property implements IPropertyBase {
     id: number;
     sellRent: number;
     name: string | undefined;
+    propertyTypeId: number;
     propertyType: string;
     bhk: number;
+    furnishingTypeId: number;
     furnishingType: string;
     price: number;
     builtArea: number;
@@ -27,17 +29,18 @@ export class Property implements IPropertyBase {
     address2?: string;
     //Address3
     city: string;
+    cityId: number;
     description?: string;
     floorNo?: string;
     totalFloors?: string;
-    readyToMove: number;
+    readyToMove: boolean;
     age?: string;
     //Bathrooms
     mainEntrance?: string;
     gated?: boolean;
     security?: number;
     maintenance?: number;
-    estPosessionOn?: Date | undefined;
+    estPosessionOn?: string |any ;
     image?: string;
     // postedOn: string;
     // postedBy: number;

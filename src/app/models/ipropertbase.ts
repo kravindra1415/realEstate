@@ -1,14 +1,14 @@
 export interface IPropertyBase {
-    id: number | undefined;
-    sellRent: number | undefined;
+    id: number | any;
+    sellRent: number | any;
     name: string | undefined;
-    furnishingType: string | undefined;
-    propertyType: string | undefined;
+    furnishingType: string | any;
+    propertyType: string | any;
     price: number | any;
     bhk: number | any;
     builtArea: number | any;
     city: string;
-    readyToMove: number;
+    readyToMove: boolean | any;
     image?: string;
-    estPosessionOn?: Date | any;
+    estPosessionOn?: string | any;
 }

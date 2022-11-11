@@ -77,14 +77,18 @@ export class HousingService {
     return this._httpClient.get<Property[]>(this.BaseApiUrl + 'api/Property/list/' + SellRent?.toString());
   }
 
-  addProperty(property: Property) {
-    let newProp = [property];
+  // addProperty(property: Property) {
+  //   let newProp = [property];
 
-    //add a new property in array if newProp already exists i local storage
-    if (localStorage.getItem('newProp')) {
-      newProp = [property, ...JSON.parse(localStorage.getItem('newProp') as string)]
-    }
-    localStorage.setItem('newProp', JSON.stringify(newProp));
+  //   //add a new property in array if newProp already exists i local storage
+  //   if (localStorage.getItem('newProp')) {
+  //     newProp = [property, ...JSON.parse(localStorage.getItem('newProp') as string)]
+  //   }
+  //   localStorage.setItem('newProp', JSON.stringify(newProp));
+  // }
+
+  addProperty(property: Property) {
+    return this._httpClient.post(this.BaseApiUrl + 'api/Property/add', property);
   }
 
   newPropID() {
@@ -98,7 +102,7 @@ export class HousingService {
     }
   }
 
-  getAgeProperty(dateOfEstablishment: Date): string {
+  getAgeProperty(dateOfEstablishment: string): string {
     const todayDate = new Date();
     const estDate = new Date(dateOfEstablishment);
     let age = todayDate.getFullYear() - estDate.getFullYear();

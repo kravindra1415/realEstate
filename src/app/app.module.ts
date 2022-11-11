@@ -25,6 +25,7 @@ import { NgxGalleryModule } from '@kolkov/ngx-gallery';
 import { FilterPipe } from './pipes/filter.pipe';
 import { SortPipe } from './pipes/sort.pipe';
 import { HttpErrorInterceptorService } from './service/httpError-interceptor.service';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { HttpErrorInterceptorService } from './service/httpError-interceptor.ser
       useClass: HttpErrorInterceptorService,
       multi: true
     },
+    DatePipe,
     HousingService,
     UserService, AuthService, AlertifyService, PropertyDetailResolverService
   ],
