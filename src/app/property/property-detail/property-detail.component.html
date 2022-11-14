@@ -13,8 +13,8 @@
   <div class="col-sm-4 p-0">
     <div class="card">
       <div class="card-img-wrapper">
-        <img *ngIf="property.image" class="card-img-top" src="../../../assets/images/{{property.image}}.jpg">
-        <img *ngIf="!property.image" class="card-img-top" src="../../../assets/images/home.jpg">
+        <img *ngIf="mainPhotoUrl" class="card-img-top" src="{{mainPhotoUrl}}">
+        <img *ngIf="!mainPhotoUrl" class="card-img-top" src="../../../assets/images/home.jpg">
       </div>
       <div class="card-body">
         <h1 class="card-title">{{property.name}}</h1>
@@ -97,7 +97,7 @@
                 <strong>Security Deposit</strong>
                 <p>{{property.security}}</p>
               </div>
-              
+
               <div class="heading">
                 <strong>Maintenance</strong>
                 <p>{{property.maintenance}}</p>

@@ -13,6 +13,7 @@ export class PropertyDetailComponent implements OnInit {
 
   galleryOptions: NgxGalleryOptions[];
   galleryImages: NgxGalleryImage[];
+  public mainPhotoUrl = null;
 
   public propertyId!: number;
   constructor(private route: ActivatedRoute, private router: Router, private housingService: HousingService) { }
@@ -32,6 +33,8 @@ export class PropertyDetailComponent implements OnInit {
       this.property = data['prp'];
       //console.log(this.property);
 
+      console.log(this.property.photos);
+
     })
 
     this.property.age = this.housingService.getAgeProperty(this.property.estPosessionOn!)
@@ -46,7 +49,6 @@ export class PropertyDetailComponent implements OnInit {
     //   );
     // })
 
-
     this.galleryOptions = [
       {
         width: '100%',
@@ -59,39 +61,60 @@ export class PropertyDetailComponent implements OnInit {
       }
     ];
 
-    this.galleryImages = [
-      {
-        small: '../../../assets/images/int-1.jpg',
-        medium: '../../../assets/images/int-1.jpg',
-        big: '../../../assets/images/int-1.jpg'
+    // this.galleryImages = [
+    //   {
+    //     small: '../../../assets/images/int-1.jpg',
+    //     medium: '../../../assets/images/int-1.jpg',
+    //     big: '../../../assets/images/int-1.jpg'
+    //   }
+    //   ,
+    //   {
+    //     small: '../../../assets/images/int-2.jpg',
+    //     medium: '../../../assets/images/int-2.jpg',
+    //     big: '../../../assets/images/int-2.jpg'
+    //   },
+    //   {
+    //     small: '../../../assets/images/int-3.jpg',
+    //     medium: '../../../assets/images/int-3.jpg',
+    //     big: '../../../assets/images/int-3.jpg'
+    //   },
+    //   {
+    //     small: '../../../assets/images/int-4.jpg',
+    //     medium: '../../../assets/images/int-4.jpg',
+    //     big: '../../../assets/images/int-4.jpg'
+    //   },
+    //   {
+    //     small: '../../../assets/images/int-5.jpg',
+    //     medium: '../../../assets/images/int-5.jpg',
+    //     big: '../../../assets/images/int-5.jpg'
+    //   }
+    // ];
+
+    this.galleryImages = this.getPropertyPhotos();
+  }
+
+  getPropertyPhotos(): NgxGalleryImage[] {
+    //debugger;
+    const photoUrls: NgxGalleryImage[] = [];
+    for (const photo of this.property.photos) {
+      if (photo.isPrimary) {
+        this.mainPhotoUrl = photo.imageUrl;
       }
-      ,
-      {
-        small: '../../../assets/images/int-2.jpg',
-        medium: '../../../assets/images/int-2.jpg',
-        big: '../../../assets/images/int-2.jpg'
-      },
-      {
-        small: '../../../assets/images/int-3.jpg',
-        medium: '../../../assets/images/int-3.jpg',
-        big: '../../../assets/images/int-3.jpg'
-      },
-      {
-        small: '../../../assets/images/int-4.jpg',
-        medium: '../../../assets/images/int-4.jpg',
-        big: '../../../assets/images/int-4.jpg'
-      },
-      {
-        small: '../../../assets/images/int-5.jpg',
-        medium: '../../../assets/images/int-5.jpg',
-        big: '../../../assets/images/int-5.jpg'
+      else {
+        photoUrls.push(
+          {
+            small: photo.imageUrl,
+            medium: photo.imageUrl,
+            big: photo.imageUrl
+          }
+        );
       }
-    ];
+    }
+    return photoUrls;
   }
 }
-
   // onSelectNext() {
   //   this.propertyId += 1;
-  //   this.router.navigate(['property-detail', this.propertyId]);
+    //   this.router.navigate(['property-detail', this.propertyId]);
   // }
 

@@ -1,4 +1,5 @@
 import { IPropertyBase } from "./ipropertbase";
+import { Photo } from "./Photo";
 
 export class Property implements IPropertyBase {
     // Id: number | undefined;
@@ -40,8 +41,10 @@ export class Property implements IPropertyBase {
     gated?: boolean;
     security?: number;
     maintenance?: number;
-    estPosessionOn?: string |any ;
+    estPosessionOn?: string | any;
     image?: string;
+    photos?: Photo[] | any;
+
     // postedOn: string;
     // postedBy: number;
 }
