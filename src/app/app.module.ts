@@ -26,6 +26,7 @@ import { FilterPipe } from './pipes/filter.pipe';
 import { SortPipe } from './pipes/sort.pipe';
 import { HttpErrorInterceptorService } from './service/httpError-interceptor.service';
 import { DatePipe } from '@angular/common';
+import { PhotoEditorComponent } from './property/photo-editor/photo-editor.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { DatePipe } from '@angular/common';
     PropertyCardComponent,
     PropertyListComponent,
     NavBarComponent,
+    PhotoEditorComponent,
     AddPropertyComponent,
     UserLoginComponent,
     UserRegisterComponent, PropertyDetailComponent, FilterPipe, SortPipe
