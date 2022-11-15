@@ -13,7 +13,7 @@ export class PropertyDetailComponent implements OnInit {
 
   galleryOptions: NgxGalleryOptions[];
   galleryImages: NgxGalleryImage[];
-  public mainPhotoUrl = null;
+  public mainPhotoUrl:string;
 
   public propertyId!: number;
   constructor(private route: ActivatedRoute, private router: Router, private housingService: HousingService) { }

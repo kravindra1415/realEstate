@@ -1,8 +1,8 @@
 <div class="card p-3 mt-2 shadow-lg h-100" style="width: 100%;">
     <div class="card-img-wrapper">
-        <img *ngIf="property.image" src="../../../assets/images/{{property.image}}.jpg" class="card-img-top mt-1"
+        <img *ngIf="property.photo" src="{{property.photo}}" class="card-img-top mt-1"
             alt="..." style="height: 210px;">
-        <img *ngIf="!property.image" src="../../../assets/images/home.jpg" class="card-img-top mt-1" alt="..."
+        <img *ngIf="!property.photo" src="../../../assets/images/home.jpg" class="card-img-top mt-1" alt="..."
             style="height: 210px;">
         <ul *ngIf="!hideIcons" class="list-inline text-center member-icons animate">
             <li class="list-inline-item">

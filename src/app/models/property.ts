@@ -42,7 +42,7 @@ export class Property implements IPropertyBase {
     security?: number;
     maintenance?: number;
     estPosessionOn?: string | any;
-    image?: string;
+    photo?: string;
     photos?: Photo[] | any;
 
     // postedOn: string;

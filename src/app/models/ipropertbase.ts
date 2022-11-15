@@ -9,6 +9,7 @@ export interface IPropertyBase {
     builtArea: number | any;
     city: string;
     readyToMove: boolean | any;
-    image?: string;
+    photo?: string;
     estPosessionOn?: string | any;
+
 }
